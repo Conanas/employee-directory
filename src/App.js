@@ -1,9 +1,19 @@
 import React from "react";
-import EmployeeContainer from "./components/EmployeeContainer"
+import Header from "./components/Header"
+import EmployeeTable from "./components/EmployeeTable"
 
 function App() {
   return (
-    <EmployeeContainer />
+    <>
+      <Header />
+      <main className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <EmployeeTable />
+          </div>
+        </div>
+      </main>
+    </>
   );
 }
 
