@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import API from "../utils/API"
+import TableRow from "./TableRow";
+import API from "../utils/API";
 
 class EmployeeContainer extends Component {
 
@@ -33,21 +34,8 @@ class EmployeeContainer extends Component {
                         <th>dob</th>
                         <th>picture</th>
                     </tr>
-                    {this.state.results.map(({ name, email, dob, picture }) => (
-                        <tr>
-                            <td>
-                                {name.title} {name.first} {name.last}
-                            </td>
-                            <td>
-                                {email}
-                            </td>
-                            <td>
-                                {dob.date} {dob.age}
-                            </td>
-                            <td>
-                                {picture.medium}
-                            </td>
-                        </tr>
+                    {this.state.results.map(({ id, name, email, dob, picture }) => (
+                        <TableRow key={id.value} name={name} email={email} dob={dob} picture={picture} />
                     ))}
                 </table>
             </div>
