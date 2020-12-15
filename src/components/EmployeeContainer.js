@@ -35,7 +35,12 @@ class EmployeeContainer extends Component {
                         <th>picture</th>
                     </tr>
                     {this.state.results.map(({ id, name, email, dob, picture }) => (
-                        <TableRow key={id.value} name={name} email={email} dob={dob} picture={picture} />
+                        <TableRow
+                            key={id.value}
+                            name={name}
+                            email={email}
+                            dob={dob}
+                            picture={picture} />
                     ))}
                 </table>
             </div>
