@@ -34,16 +34,18 @@ class EmployeeContainer extends Component {
                             <th>Name</th>
                             <th>Email</th>
                             <th>DOB</th>
+                            <th>Gender</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.results.map(({ id, name, email, dob, picture }) => (
+                        {this.state.results.map(({ id, name, email, dob, picture, gender }) => (
                             <TableRow
                                 key={id.value}
                                 name={name}
                                 email={email}
                                 dob={dob}
-                                picture={picture} />
+                                picture={picture}
+                                gender={gender} />
                         ))}
                     </tbody>
                 </table>
