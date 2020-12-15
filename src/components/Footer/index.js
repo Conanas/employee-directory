@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./style.css"
 
-class Header extends Component {
+class Footer extends Component {
     render() {
         return (
             <header>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <h1>Employee Directory</h1>
+                            <h1>Footer</h1>
                         </div>
                     </div>
                 </div>
@@ -17,4 +17,4 @@ class Header extends Component {
     }
 }
 
-export default Header
+export default Footer

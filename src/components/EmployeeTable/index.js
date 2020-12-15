@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TableRow from "../TableRow";
+import "./style.css";
 import API from "../../utils/API";
 
 class EmployeeTable extends Component {
