@@ -28,20 +28,24 @@ class EmployeeContainer extends Component {
             <div>
                 <p>Employee Container</p>
                 <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>email</th>
-                        <th>dob</th>
-                        <th>picture</th>
-                    </tr>
-                    {this.state.results.map(({ id, name, email, dob, picture }) => (
-                        <TableRow
-                            key={id.value}
-                            name={name}
-                            email={email}
-                            dob={dob}
-                            picture={picture} />
-                    ))}
+                    <thead>
+                        <tr>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>DOB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.results.map(({ id, name, email, dob, picture }) => (
+                            <TableRow
+                                key={id.value}
+                                name={name}
+                                email={email}
+                                dob={dob}
+                                picture={picture} />
+                        ))}
+                    </tbody>
                 </table>
             </div>
         )
