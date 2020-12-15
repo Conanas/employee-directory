@@ -15,6 +15,9 @@ function TableRow(props) {
             <td>
                 {props.dob.date} {props.dob.age}
             </td>
+            <td>
+                {props.gender}
+            </td>
         </tr>
     )
 }
