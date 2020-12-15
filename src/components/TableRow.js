@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 
 function TableRow(props) {
+    let date = new Date(props.dob.date)
     return (
         <tr>
             <td>
-                {props.picture.medium}
+                <img src={props.picture.medium} alt={`${props.name.first} image`}></img>
             </td>
             <td>
                 {props.name.title} {props.name.first} {props.name.last}
@@ -13,7 +15,10 @@ function TableRow(props) {
                 {props.email}
             </td>
             <td>
-                {props.dob.date} {props.dob.age}
+                {`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`} {props.dob.age}
+            </td>
+            <td>
+                {props.dob.age}
             </td>
             <td>
                 {props.gender}

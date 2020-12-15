@@ -26,7 +26,7 @@ class EmployeeContainer extends Component {
     render() {
         return (
             <div>
-                <p>Employee Container</p>
+                <p>Employee Directory</p>
                 <table>
                     <thead>
                         <tr>
@@ -34,6 +34,7 @@ class EmployeeContainer extends Component {
                             <th>Name</th>
                             <th>Email</th>
                             <th>DOB</th>
+                            <th>Age</th>
                             <th>Gender</th>
                         </tr>
                     </thead>
