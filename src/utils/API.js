@@ -1,12 +1,9 @@
 import axios from "axios";
-const BASEURL = "https://randomuser.me/api/?inc=name,email,dob,picture&results=20";
+const BASEURL = "https://randomuser.me/api/?inc=name,email,dob,picture&results=20&nat=us";
 
-async function search() {
-    try {
-        return await axios.get(BASEURL)
-    } catch (error) {
-        console.log(error)
+// eslint-disable-next-line
+export default {
+    search: function (query) {
+        return axios.get(BASEURL);
     }
-}
-
-export default search;
+};
