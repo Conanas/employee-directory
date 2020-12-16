@@ -2,23 +2,22 @@
 import React from "react";
 
 function TableRow(props) {
-    let date = new Date(props.dob.date)
     return (
         <tr>
             <td>
-                <img src={props.picture.medium} alt={`${props.name.first} image`}></img>
+                <img src={props.picture} alt={`${props.name} image`}></img>
             </td>
             <td>
-                {props.name.title} {props.name.first} {props.name.last}
+                {props.name}
             </td>
             <td>
                 {props.email}
             </td>
             <td>
-                {`${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`}
+                {props.dob}
             </td>
             <td>
-                {props.dob.age}
+                {props.age}
             </td>
             <td>
                 {props.gender}
