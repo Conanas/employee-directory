@@ -17,11 +17,30 @@ class EmployeeTable extends Component {
         try {
             let users = await API.search();
             let { results } = users.data
-            console.log(results)
-            this.setState({ results: results })
+            let tempResults = [];
+            results.forEach(({ dob, email, gender, id, name, picture }) => {
+                let date = new Date(dob.date)
+                let newUser = {
+                    age: dob.age,
+                    dob: `${date.getDate()}/${date.getMonth() + 1}/${date.getYear()}`,
+                    email: email,
+                    gender: gender,
+                    id: id.value,
+                    name: `${name.first} ${name.last}`,
+                    picture: picture.medium
+                }
+                tempResults.push(newUser)
+            })
+            this.setState({ results: tempResults })
         } catch (error) {
             console.log(error)
         }
+    }
+
+    sortTable = (event, column) => {
+        // console.log(column)
+        // console.log(event)
+
     }
 
     render() {
@@ -30,7 +49,14 @@ class EmployeeTable extends Component {
                 <thead>
                     <tr>
                         <th>Picture</th>
-                        <th>Name</th>
+                        <th>
+                            Name
+                            <button onClick={event => this.sortTable(event, "name")}>
+                                <i className="fas fa-sort"></i>
+                                <i className="fas fa-sort-up"></i>
+                                <i className="fas fa-sort-down"></i>
+                            </button>
+                        </th>
                         <th>Email</th>
                         <th>DOB</th>
                         <th>Age</th>
@@ -38,14 +64,16 @@ class EmployeeTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.results.map(({ id, name, email, dob, picture, gender }) => (
+                    {this.state.results.map(({ age, dob, email, gender, id, name, picture }) => (
                         <TableRow
-                            key={id.value}
-                            name={name}
-                            email={email}
+                            age={age}
                             dob={dob}
+                            email={email}
+                            gender={gender}
+                            key={id}
+                            name={name}
                             picture={picture}
-                            gender={gender} />
+                        />
                     ))}
                 </tbody>
             </table>
