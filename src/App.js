@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import SortOption from "./components/SortOption"
 import EmployeeTable from "./components/EmployeeTable"
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
+              <SortOption />
               <EmployeeTable />
             </div>
           </div>
