@@ -1,16 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import "./style.css";
 
-class SortOption extends Component {
-    state = {
-
-    }
-
-    render() {
-        return (
-            <p>SortOption</p>
-        )
-    }
+function SortOption() {
+    return (
+        <p>SortOption</p>
+    )
 }
 
 export default SortOption
