@@ -17,7 +17,10 @@ class App extends Component {
 
 	getUsers = async () => {
 		try {
-			let users = await API.search();
+			let users = []
+			while (users.length === 0) {
+				users = await API.search();
+			}
 			let { results } = users.data
 			let tempResults = [];
 			results.forEach(({ dob, email, gender, id, name, picture }) => {
@@ -41,7 +44,35 @@ class App extends Component {
 
 	sortTable = (event) => {
 		event.preventDefault()
-		console.log(event)
+		let { target } = event
+		let { name, asc } = target
+		let tempResults = this.state.results
+		let lessThan, greaterThan = 0
+		if (asc.checked === true) {
+			lessThan = -1
+			greaterThan = 1
+		} else {
+			lessThan = 1
+			greaterThan = -1
+		}
+		tempResults.sort((a, b) => {
+			let itemA, itemB
+			if (name.checked === true) {
+				itemA = a.name.toLowerCase()
+				itemB = b.name.toLowerCase()
+			} else {
+				itemA = a.age
+				itemB = b.age
+			}
+			if (itemA < itemB) {
+				return lessThan
+			}
+			if (itemA > itemB) {
+				return greaterThan
+			}
+			return 0
+		})
+		this.setState(tempResults)
 	}
 
 	render() {
