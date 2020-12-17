@@ -46,10 +46,9 @@ class App extends Component {
     event.preventDefault()
     let { target } = event
     let { name, asc } = target
-    let tempResults = this.state.results
     let lessThan = asc.checked ? -1 : 1
     let greaterThan = asc.checked ? 1 : -1
-    tempResults.sort((a, b) => {
+    this.setState(prevState => prevState.results.sort((a, b) => {
       let itemA = name.checked ? a.name.toLowerCase() : a.age
       let itemB = name.checked ? b.name.toLowerCase() : b.age
       return (
@@ -57,9 +56,7 @@ class App extends Component {
           itemA > itemB ? greaterThan :
             0
       )
-
-    })
-    this.setState(prevState => prevState.results = tempResults)
+    }))
   }
 
   render() {
