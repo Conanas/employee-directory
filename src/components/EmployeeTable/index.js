@@ -10,11 +10,13 @@ function EmployeeTable({ results, sortTable }) {
                     <th>Picture</th>
                     <th>
                         Name
-                            <button onClick={() => sortTable("name")}>
+                        {/* <button 
+                        onClick={() => sortTable("name")}
+                        >
                             <i className="fas fa-sort"></i>
                             <i className="fas fa-sort-up"></i>
                             <i className="fas fa-sort-down"></i>
-                        </button>
+                        </button> */}
                     </th>
                     <th>Email</th>
                     <th>DOB</th>
