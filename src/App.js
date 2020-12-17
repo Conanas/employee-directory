@@ -83,7 +83,6 @@ class App extends Component {
 								/>
 								<EmployeeTable
 									results={this.state.results}
-								// sortTable={this.sortTable}
 								/>
 							</div>
 						</div>
