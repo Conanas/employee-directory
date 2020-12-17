@@ -47,19 +47,11 @@ class App extends Component {
     let { target } = event
     let { name, asc } = target
     let tempResults = this.state.results
-    let lessThan = 1
-    let greaterThan = -1
-    if (asc.checked) {
-      lessThan = -1
-      greaterThan = 1
-    }
+    let lessThan = asc.checked ? -1 : 1
+    let greaterThan = asc.checked ? 1 : -1
     tempResults.sort((a, b) => {
-      let itemA = a.age
-      let itemB = b.age
-      if (name.checked) {
-        itemA = a.name.toLowerCase()
-        itemB = b.name.toLowerCase()
-      }
+      let itemA = name.checked ? a.name.toLowerCase() : a.age
+      let itemB = name.checked ? b.name.toLowerCase() : b.age
       return (
         itemA < itemB ? lessThan :
           itemA > itemB ? greaterThan :
