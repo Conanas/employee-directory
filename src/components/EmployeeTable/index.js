@@ -8,16 +8,7 @@ function EmployeeTable({ results, sortTable }) {
             <thead>
                 <tr>
                     <th>Picture</th>
-                    <th>
-                        Name
-                        {/* <button 
-                        onClick={() => sortTable("name")}
-                        >
-                            <i className="fas fa-sort"></i>
-                            <i className="fas fa-sort-up"></i>
-                            <i className="fas fa-sort-down"></i>
-                        </button> */}
-                    </th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>DOB</th>
                     <th>Age</th>
