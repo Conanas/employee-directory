@@ -36,7 +36,7 @@ class App extends Component {
 				}
 				tempResults.push(newUser)
 			})
-			this.setState({ results: tempResults })
+			this.setState(prevState => prevState.results = tempResults)
 		} catch (error) {
 			console.log(error)
 		}
@@ -47,32 +47,27 @@ class App extends Component {
 		let { target } = event
 		let { name, asc } = target
 		let tempResults = this.state.results
-		let lessThan, greaterThan = 0
-		if (asc.checked === true) {
+		let lessThan = 1
+		let greaterThan = -1
+		if (asc.checked) {
 			lessThan = -1
 			greaterThan = 1
-		} else {
-			lessThan = 1
-			greaterThan = -1
 		}
 		tempResults.sort((a, b) => {
-			let itemA, itemB
-			if (name.checked === true) {
+			let itemA = a.age
+			let itemB = b.age
+			if (name.checked) {
 				itemA = a.name.toLowerCase()
 				itemB = b.name.toLowerCase()
-			} else {
-				itemA = a.age
-				itemB = b.age
 			}
-			if (itemA < itemB) {
-				return lessThan
-			}
-			if (itemA > itemB) {
-				return greaterThan
-			}
-			return 0
+			return (
+				itemA < itemB ? lessThan :
+					itemA > itemB ? greaterThan :
+						0
+			)
+
 		})
-		this.setState(tempResults)
+		this.setState(prevState => prevState.results = tempResults)
 	}
 
 	render() {
