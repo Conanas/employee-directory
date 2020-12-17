@@ -8,7 +8,7 @@ import API from "./utils/API"
 class App extends Component {
 
 	state = {
-		results: []
+		results: [],
 	}
 
 	componentDidMount = () => {
@@ -39,13 +39,10 @@ class App extends Component {
 		}
 	}
 
-	// sortTable = (column) => {
-	// 	console.log(column)
-	// 	console.log(this.state.results)
-	// 	this.state.results.sort((a, b) => {
-	// 		let varA = a.
-	// 	})
-	// }
+	sortTable = (event) => {
+		event.preventDefault()
+		console.log(event)
+	}
 
 	render() {
 		return (
@@ -55,10 +52,12 @@ class App extends Component {
 					<div className="container">
 						<div className="row">
 							<div className="col-md-12">
-								<SortOption />
+								<SortOption
+									sortTable={this.sortTable}
+								/>
 								<EmployeeTable
 									results={this.state.results}
-									sortTable={this.sortTable}
+								// sortTable={this.sortTable}
 								/>
 							</div>
 						</div>
