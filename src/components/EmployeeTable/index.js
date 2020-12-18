@@ -2,7 +2,7 @@ import React from "react";
 import TableRow from "../TableRow";
 import "./style.css";
 
-function EmployeeTable({ results, sortTable }) {
+function EmployeeTable({ results }) {
   return (
     <table>
       <thead>
