@@ -4,7 +4,6 @@ import "./style.css";
 function SortOption(props) {
   return (
     <form onSubmit={(event) => props.sortTable(event)}>
-      <label>Sort employees by: </label><br />
       <input type="radio" name="ageName" defaultChecked value="name" id="name" />
       <label>Name</label>
       <input type="radio" name="ageName" value="age" id="age" />

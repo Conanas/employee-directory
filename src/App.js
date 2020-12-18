@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import SortOption from "./components/SortOption"
+import FilterOption from "./components/FilterOption"
 import EmployeeTable from "./components/EmployeeTable"
 import API from "./utils/API"
 
@@ -70,6 +71,7 @@ class App extends Component {
                 <SortOption
                   sortTable={this.sortTable}
                 />
+                <FilterOption />
                 <EmployeeTable
                   results={this.state.results}
                 />
