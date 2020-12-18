@@ -10,6 +10,8 @@ class App extends Component {
 
   state = {
     results: [],
+    filter: "",
+    filteredResults: []
   }
 
   componentDidMount = () => {
@@ -38,6 +40,7 @@ class App extends Component {
         tempResults.push(newUser)
       })
       this.setState(prevState => prevState.results = tempResults)
+      this.setState(prevState => prevState.filteredResults = tempResults)
     } catch (error) {
       console.log(error)
     }
@@ -49,7 +52,7 @@ class App extends Component {
     let { name, asc } = target
     let lessThan = asc.checked ? -1 : 1
     let greaterThan = asc.checked ? 1 : -1
-    this.setState(prevState => prevState.results.sort((a, b) => {
+    this.setState(prevState => prevState.filteredResults.sort((a, b) => {
       let itemA = name.checked ? a.name.toLowerCase() : a.age
       let itemB = name.checked ? b.name.toLowerCase() : b.age
       return (
@@ -58,6 +61,13 @@ class App extends Component {
             0
       )
     }))
+  }
+
+  filterTable = (event) => {
+    let { value } = event.target
+    this.setState(prevState => prevState.filter = value)
+    let filteredResults = this.state.results.filter(user => user.name.toLowerCase().includes(value.toLowerCase()))
+    this.setState(prevState => prevState.filteredResults = filteredResults)
   }
 
   render() {
@@ -71,9 +81,11 @@ class App extends Component {
                 <SortOption
                   sortTable={this.sortTable}
                 />
-                <FilterOption />
+                <FilterOption
+                  filter={this.state.filter}
+                  filterTable={this.filterTable} />
                 <EmployeeTable
-                  results={this.state.results}
+                  results={this.state.filteredResults}
                 />
               </div>
             </div>
