@@ -2,17 +2,23 @@ import React from "react";
 import "./style.css"
 
 function Footer() {
-    return (
-        <header>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12">
-                        <h1>Footer</h1>
-                    </div>
-                </div>
-            </div>
-        </header>
-    )
+  return (
+    <footer>
+      <div>
+        <a className="links-div-anchor" href="https://www.linkedin.com/in/thomas-haigh-5960b81aa/" target="_blank" rel="noreferrer">
+          <i className="fab fa-linkedin font-awesome social-icon"></i>
+        </a>
+        <a className="links-div-anchor" href="https://github.com/Conanas" target="_blank" rel="noreferrer">
+          <i className="fab fa-github font-awesome social-icon"></i>
+        </a>
+      </div>
+      <div>
+        <label>Phone: 0406 253 030 || </label>
+        <label>Email: tmhaigh@gmail.com || </label>
+        <label>Location: Melbourne, Victoria, Australia</label>
+      </div>
+    </footer>
+  )
 
 }
 
