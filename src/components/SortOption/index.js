@@ -12,7 +12,7 @@ function SortOption(props) {
       <label>Asc.</label>
       <input type="radio" name="ascDes" value="desc" id="desc" />
       <label>Desc.</label>
-      <input type="submit" value="Sort" />
+      <input id="submit-button" type="submit" value="Sort" />
     </form>
   )
 }
