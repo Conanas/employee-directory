@@ -77,13 +77,20 @@ class App extends Component {
         <main>
           <div className="container">
             <div className="row">
-              <div className="col-md-12">
+              <div className="col-sm-6">
+                <FilterOption
+                  filter={this.state.filter}
+                  filterTable={this.filterTable}
+                />
+              </div>
+              <div className="col-sm-6 d-flex justify-content-end">
                 <SortOption
                   sortTable={this.sortTable}
                 />
-                <FilterOption
-                  filter={this.state.filter}
-                  filterTable={this.filterTable} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
                 <EmployeeTable
                   results={this.state.filteredResults}
                 />
