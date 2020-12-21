@@ -1,7 +1,5 @@
 header {
-    padding: 40px;
-}
-
-h1 {
-    text-align: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: var(--primary);
 }
