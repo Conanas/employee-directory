@@ -5,6 +5,7 @@ import SortOption from "./components/SortOption"
 import FilterOption from "./components/FilterOption"
 import EmployeeTable from "./components/EmployeeTable"
 import API from "./utils/API"
+import "./App.css"
 
 class App extends Component {
 
@@ -77,13 +78,13 @@ class App extends Component {
         <main>
           <div className="container">
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-sm-4">
                 <FilterOption
                   filter={this.state.filter}
                   filterTable={this.filterTable}
                 />
               </div>
-              <div className="col-sm-6 d-flex justify-content-end">
+              <div className="col-sm-8 d-flex justify-content-sm-end">
                 <SortOption
                   sortTable={this.sortTable}
                 />
