@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
+import "./style.css";
 
 function TableRow(props) {
     return (
         <tr>
-            <td>
+            <th scope="row">
                 <img src={props.picture} alt={`${props.name} image`}></img>
-            </td>
+            </th>
             <td>
                 {props.name}
             </td>
