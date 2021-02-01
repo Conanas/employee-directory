@@ -12,7 +12,8 @@ class App extends Component {
   state = {
     results: [],
     filter: "",
-    filteredResults: []
+    filteredResults: [],
+    connectionError: false
   }
 
   componentDidMount = () => {
@@ -22,9 +23,7 @@ class App extends Component {
   getUsers = async () => {
     try {
       let users = []
-      while (users.length === 0) {
-        users = await API.search();
-      }
+      users = await API.search();
       let { results } = users.data
       let tempResults = [];
       results.forEach(({ dob, email, gender, id, name, picture }) => {
@@ -43,7 +42,7 @@ class App extends Component {
       this.setState(prevState => prevState.results = tempResults)
       this.setState(prevState => prevState.filteredResults = tempResults)
     } catch (error) {
-      console.log(error)
+      this.getUsers()
     }
   }
 
